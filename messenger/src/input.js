@@ -1,5 +1,5 @@
 import * as React from "react";
-import Firebase from "./backend/firebase";
+import FirebaseHandler from "./backend/firebase";
 
 class Input extends React.Component {
     constructor(props) {
@@ -18,10 +18,9 @@ class Input extends React.Component {
     }
 
     handleSubmit(event) {
-        const fire = new Firebase();
-        let code = fire.send(this.state.value);
+        const fire = new FirebaseHandler();
+        fire.writeUserData("xxx", "edvin", "email", "message");
         this.setState({value: ""});
-        alert(code);
         event.preventDefault();
     }
 
