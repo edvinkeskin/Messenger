@@ -1,43 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html xmlns="http://www.w3.org/1999/html" lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Messenger</title>
+  <style>
+    body {
+      font-family: Arial,sans-serif;
+      color: black;
+      margin: 0;
+    }
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    .top {
+      overflow: hidden;
+      background-color: #0B2545;
+      z-index: 0;
+    }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    .top a {
+      float: left;
+      color: #C0C0C0;
+      text-align: center;
+      padding: 26px 88px;
+      text-decoration: none;
+      font-size: 20px;
+    }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    .top a:hover {
+      background-color: #13315C;
+      color: black;
+    }
+
+    .split {
+      height: 100%;
+      width: 50%;
+      position: fixed;
+      z-index: -1;
+      top: 0;
+      overflow: hidden;
+      padding-top: 16px;
+    }
+
+    .left {
+      left: 0;
+      background-color: #EEF4ED;
+    }
+
+    .right {
+      right: 0;
+      background-color: #EEF4ED;
+    }
+
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .centered img {
+      width: 120px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top">
+  <a style="float: left;" href="./">Messenger</a>
+  <a href="about.html">Contacts</a>
+  <a href="info.html">About</a>
+</div>
+
+<div class="bottom">
+  <div class="split left">
+  </div>
+
+  <div class="split right">
+    <div class="centered">
+      <h1>Placeholder</h1>
+      <div id="root"></div>
+    </div>
+  </div>
+</div>
+<p id="demo"></p>
+</body>
 </html>
