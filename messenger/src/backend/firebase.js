@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase, ref, set } from "firebase/database";
+import moment from 'moment';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,6 +29,24 @@ class FirebaseHandler {
         set(ref(database, 'users/' + userId), {
             username: name,
             email: email,
+            message: message
+        });
+    }
+
+    sendMessage(sender, recipient, message) {
+        let u1, u2;
+        if (sender > recipient) {
+            u1 = sender;
+            u2 = recipient;
+        } else {
+            u1 = recipient;
+            u2 = sender
+        }
+
+        let path_name = 'chats/' + u1 + "_" + u2
+        set(ref(database, path_name), {
+            sender: sender,
+            recipient: recipient,
             message: message
         });
     }
