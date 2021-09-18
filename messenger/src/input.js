@@ -19,7 +19,7 @@ class Input extends React.Component {
 
     handleSubmit(event) {
         const fire = new FirebaseHandler();
-        fire.writeUserData("xxx", "edvin", "email", "message");
+        fire.writeUserData("xxx", "edvin", "email", this.state.value);
         this.setState({value: ""});
         event.preventDefault();
     }
@@ -29,14 +29,14 @@ class Input extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        <textarea maxLength= "700" cols= "40" wrap="hard"
-                                  style={{ margin: "50px 15px 15px 0px",
-                                      resize: "none", height: '15vh', fontSize: "25px"}} autoComplete="off"
+                        <textarea maxLength= "700" cols= "50" wrap="hard"
+                                  style={{ margin: "60px 15px 15px 0px",
+                                      resize: "none", height: '10vh', fontSize: "25px"}} autoComplete="off"
                                   id="inputField" value={this.state.value}
                                   onChange={this.handleChange} />
                     </label>
-                    <input type="submit" style={{ margin: "40px 8px 12px 16px",
-                        height: "6.4vh", width: "20vh", fontSize: "20px"}} value="Send message" />
+                    <input type="submit" style={{
+                        height: "4vh", width: "20vh", fontSize: "20px"}} value="Send message" />
                 </form>
             </div>
         );
