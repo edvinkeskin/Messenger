@@ -12,6 +12,7 @@ class Input extends React.Component {
 
     handleChange(event) {
         this.setState({value: event.target.value});
+
         if(event.target.value.length === 700) {
             alert("maximum message length reached");
         }
@@ -27,16 +28,21 @@ class Input extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        <textarea maxLength= "700" cols= "50" wrap="hard"
-                                  style={{ margin: "60px 15px 15px 0px",
-                                      resize: "none", height: '10vh', fontSize: "25px"}} autoComplete="off"
+                <form onSubmit={this.handleSubmit} >
+                    <div style={{display: "flex", 'flex-direction': "row" }}>
+                        <label>
+                        <textarea maxLength= "700"
+                                  cols= "50"
+                                  rows= "2"
+                                  style={{'word-wrap': 'break-word', 'border-radius': "25px", margin: "0px 25px 0px 0px", padding: "10px 20px 0px 20px",
+                                      resize: "none", fontSize: "25px", outline: "none"}}
+                                  autoComplete="off"
                                   id="inputField" value={this.state.value}
                                   onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" style={{
-                        height: "4vh", width: "20vh", fontSize: "20px"}} value="Send message" />
+                        </label>
+                        <input type="submit" style={{'border-radius': "25px",
+                            height: "5.7vh", width: "30vh", fontSize: "25px", wrap:"hard"}} value="Send" />
+                    </div>
                 </form>
             </div>
         );
